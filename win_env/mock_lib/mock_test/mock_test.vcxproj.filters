@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\my_namespace">
+      <UniqueIdentifier>{452f2ea9-9500-4de8-b9d3-666b9f1f84e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\my_namespace\functions">
+      <UniqueIdentifier>{2fc836ef-5b1d-455e-a83b-a76a1296e9ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\my_namespace\my_class">
+      <UniqueIdentifier>{d2872d23-ef7d-410f-91d8-ca05dc76060b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\test\test_mock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\test\my_namespace\functions\test_another_one.cpp">
+      <Filter>Source Files\my_namespace\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\test\my_namespace\functions\test_special_function.cpp">
+      <Filter>Source Files\my_namespace\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\test\my_namespace\my_class\test_another_member.cpp">
+      <Filter>Source Files\my_namespace\my_class</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\test\my_namespace\my_class\test_member.cpp">
+      <Filter>Source Files\my_namespace\my_class</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <PROJECT_ROOT>..\..\</PROJECT_ROOT>
+    <SOURCE_DIR>$(PROJECT_ROOT)lib\src</SOURCE_DIR>
+    <INCLUDE_DIR>$(PROJECT_ROOT)lib\inc</INCLUDE_DIR>
+    <BUILD_INCLUDE_DIR>$(PROJECT_ROOT)tmp\lib\include</BUILD_INCLUDE_DIR>
+    <BUILD_DIR>$(PROJECT_ROOT)tmp\lib</BUILD_DIR>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)$(BUILD_DIR)\</OutDir>
+    <IncludePath>$(SolutionDir)$(INCLUDE_DIR);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <PostBuildEvent>
+      <Command>xcopy /y /E $(SolutionDir)$(INCLUDE_DIR) $(SolutionDir)$(BUILD_INCLUDE_DIR)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup>
+    <PostBuildEvent>
+      <Message>Copy headers</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="PROJECT_ROOT">
+      <Value>$(PROJECT_ROOT)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SOURCE_DIR">
+      <Value>$(SOURCE_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="INCLUDE_DIR">
+      <Value>$(INCLUDE_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="BUILD_INCLUDE_DIR">
+      <Value>$(BUILD_INCLUDE_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="BUILD_DIR">
+      <Value>$(BUILD_DIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
