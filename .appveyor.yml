@@ -2,7 +2,7 @@ image: Visual Studio 2017
 init:
     - git config --global core.autocrlf input
     
-clone_folder: c:\projects\mock\win_env\
+clone_folder: c:\projects\mock\
 shallow_clone: true
     
 platform:
@@ -84,16 +84,34 @@ matrix:
         - platform: x86
           BOOST_LIBRARYDIR: C:\Libraries\boost_1_64_0\lib64-msvc-14.1
     
-build_script:
-    - ps: >-
-        If ($env:Platform -Match "x86") {
-            & "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"
-        } Else {
-            & "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
-        }
-    
-artifacts:
-    - path: tmp\test\mock_test.exe
+build:
+    project: win_env\mock_lib\mock_lib.sln
+    verbosity: minimal
     
 test_script:
-    - call "tmp\test\mock_test.exe"
+    - ps: |
+        msbuild "C:\projects\mock\win_env\mock_lib\mock_lib.sln" /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+        $outcome = If ($LASTEXITCODE -eq 0) { "Passed" } Else { "Failed" }
+        
+        Add-AppveyorTest -Name "Compile-time test" -Framework Boost -Filename tmp\test\mock_test.exe -Outcome $outcome
+        If ($outcome -ne "Passed") { throw $outcome }
+    - ps: |
+        $processinfo = New-Object System.Diagnostics.ProcessStartInfo
+        $processinfo.FileName = "$(pwd)\tmp\test\mock_test.exe"
+        $processinfo.RedirectStandardError = $true
+        $processinfo.RedirectStandardOutput = $true
+        $processinfo.UseShellExecute = $false
+        $process = New-Object System.Diagnostics.Process
+        $process.StartInfo = $processinfo
+
+        Try {
+            $process.Start() | Out-Null
+            $process.WaitForExit()
+        } Catch [System.Management.Automation.RemoteException] { If ($_.FullyQualifiedErrorId -eq "NativeCommandError") { $error.Remove[$Error[0]] } Else { Throw }
+        } Catch { Throw }
+        
+        $result = "$($process.StandardOutput.ReadToEnd()) $($process.StandardError.ReadToEnd())"
+        $outcome = If ($process.exitcode -eq 0) { "Passed" } Else { "Failed" }
+        
+        Add-AppveyorTest -Name "Run-time test" -Framework Boost -Filename tmp\test\mock_test.exe -Outcome $outcome -Stdout $result
+        If ($outcome -ne "Passed") { throw $outcome }
