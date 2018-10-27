@@ -3,7 +3,7 @@ init:
     - git config --global core.autocrlf input
     
 clone_folder: c:\projects\mock\win_env\
-shallow_copy: true
+shallow_clone: true
     
 platform:
     - x64
@@ -16,74 +16,85 @@ configuration:
 environment:
     matrix:
         - BOOST_ROOT: C:\Libraries\boost_1_67_0 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_67_0\lib64-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_67_0\lib64-msvc-14.1
           TOOLCHAIN: msvc15
         - BOOST_ROOT: C:\Libraries\boost_1_67_0 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_67_0\lib32-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_67_0\lib32-msvc-14.1
           TOOLCHAIN: msvc15
         - BOOST_ROOT: C:\Libraries\boost_1_66_0 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_66_0\lib64-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_66_0\lib64-msvc-14.1
           TOOLCHAIN: msvc15
         - BOOST_ROOT: C:\Libraries\boost_1_66_0 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_66_0\lib32-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_66_0\lib32-msvc-14.1
           TOOLCHAIN: msvc15
         - BOOST_ROOT: C:\Libraries\boost_1_65_1
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib64-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib64-msvc-14.1
           TOOLCHAIN: msvc15
         - BOOST_ROOT: C:\Libraries\boost_1_65_1
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib32-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib32-msvc-14.1
           TOOLCHAIN: msvc15
         - BOOST_ROOT: C:\Libraries\boost_1_64_0 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_64_0\lib64-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_64_0\lib64-msvc-14.1
           TOOLCHAIN: msvc15
         - BOOST_ROOT: C:\Libraries\boost_1_64_0 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_64_0\lib32-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_64_0\lib32-msvc-14.1
           TOOLCHAIN: msvc15
         - BOOST_ROOT: C:\Libraries\boost_1_67_0 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_67_0\lib64-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_67_0\lib64-msvc-14.1
           TOOLCHAIN: msvc14
         - BOOST_ROOT: C:\Libraries\boost_1_67_0 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_67_0\lib32-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_67_0\lib32-msvc-14.1
           TOOLCHAIN: msvc14
         - BOOST_ROOT: C:\Libraries\boost_1_66_0 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_66_0\lib64-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_66_0\lib64-msvc-14.1
           TOOLCHAIN: msvc14
         - BOOST_ROOT: C:\Libraries\boost_1_66_0 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_66_0\lib32-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_66_0\lib32-msvc-14.1
           TOOLCHAIN: msvc14
         - BOOST_ROOT: C:\Libraries\boost_1_65_1 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib64-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib64-msvc-14.1
           TOOLCHAIN: msvc14
         - BOOST_ROOT: C:\Libraries\boost_1_65_1 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib32-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib32-msvc-14.1
           TOOLCHAIN: msvc14
         - BOOST_ROOT: C:\Libraries\boost_1_64_0 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_64_0\lib64-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_64_0\lib64-msvc-14.1
           TOOLCHAIN: msvc14
         - BOOST_ROOT: C:\Libraries\boost_1_64_0 
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_64_0\lib32-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_64_0\lib32-msvc-14.1
           TOOLCHAIN: msvc14
           
 matrix:
     fast_finish: false
     exclude:
         - platform: x64
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_67_0\lib32-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_67_0\lib32-msvc-14.1
         - platform: x64
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_66_0\lib32-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_66_0\lib32-msvc-14.1
         - platform: x64
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib32-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib32-msvc-14.1
         - platform: x64
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_64_0\lib32-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_64_0\lib32-msvc-14.1
         - platform: x86
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_67_0\lib64-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_67_0\lib64-msvc-14.1
         - platform: x86
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_66_0\lib64-msvc-14.0
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_66_0\lib64-msvc-14.1
         - platform: x86
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib64-msvc-14.0
-        - platform: x65
-          BOOST_LIBRARYDIR: C:\Libraries\boost_1_64_0\lib64-msvc-14.0
-          
-build:
-    - call c:\projects\mock\win_env\prepare_build.bat
-    - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_65_1\lib64-msvc-14.1
+        - platform: x86
+          BOOST_LIBRARYDIR: C:\Libraries\boost_1_64_0\lib64-msvc-14.1
+    
+install:
+    - ps: >-
+        If ($env:Platform -Match "x86") {
+            & "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"
+        } Else {
+            & "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
+        }
+    
+artifacts:
+    - path: tmp\test\mock_test.exe
+      name: test_exe
+    
+test_script:
+    - call "tmp\test\mock_test.exe"

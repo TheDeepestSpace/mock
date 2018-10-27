@@ -14,7 +14,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <PostBuildEvent>
-      <Command>xcopy /y /E $(SolutionDir)$(INCLUDE_DIR) $(SolutionDir)$(BUILD_INCLUDE_DIR)</Command>
+      <Command>xcopy /y /E /s /i $(SolutionDir)$(INCLUDE_DIR) $(SolutionDir)$(BUILD_INCLUDE_DIR)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup>
